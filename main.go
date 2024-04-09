@@ -1,7 +1,7 @@
 package main
 
 import (
-   "log" 
+   "lg" 
    "net/http" 
 )
 
