@@ -3,8 +3,8 @@ pipeline {
     environment {
         docker_app = "go_app"
         GOCACHE = "/tmp"
-        registry = "155.98.37.45"
-        userid = "lngo"
+        registry = "pcvm605-8.emulab.net"
+        userid = "th100850"
     }
     stages {
         stage('Build') {
@@ -66,7 +66,7 @@ pipeline {
                 }
             }
             steps {
-                sshagent(credentials: ['cloudlab-lngo']) {
+                sshagent(credentials: ['cloudlab-th100850']) {
                     sh "sed -i 's/REGISTRY/${registry}/g' deployment.yml"
                     sh "sed -i 's/DOCKER_APP/${docker_app}/g' deployment.yml"
                     sh "sed -i 's/BUILD_NUMBER/${BUILD_NUMBER}/g' deployment.yml"
